@@ -44,7 +44,7 @@ class Project extends \yii\db\ActiveRecord
         return [
             [['name', 'tech_stack', 'description'], 'required'],
             [['tech_stack', 'description'], 'string'],
-            [['start_date', 'end_date'], 'safe'],
+            [['start_date', 'end_date'], 'date', 'format' => 'php:Y-m-d'],
             [['name'], 'string', 'max' => 255],
             [['imageFiles'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, jpeg', 'maxFiles' => 10],
         ];

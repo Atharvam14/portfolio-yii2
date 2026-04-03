@@ -29,8 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             'id',
             'name',
-            'start_date',
-            'end_date',
+            [
+    'attribute' => 'start_date',
+    'format' => ['date', 'php:Y-m-d'],
+],
+[
+    'attribute' => 'end_date',
+    'format' => ['date', 'php:Y-m-d'],
+],
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Project $model, $key, $index, $column) {

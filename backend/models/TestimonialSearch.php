@@ -17,7 +17,7 @@ class TestimonialSearch extends Testimonial
     public function rules()
     {
         return [
-            [['id', 'project_id', 'customer_image_id', 'rating'], 'integer'],
+            [['id', 'project_id', 'customer_image_id',], 'integer'],
             [['title', 'customer_name', 'review'], 'safe'],
         ];
     }
@@ -61,7 +61,7 @@ class TestimonialSearch extends Testimonial
             'id' => $this->id,
             'project_id' => $this->project_id,
             'customer_image_id' => $this->customer_image_id,
-            'rating' => $this->rating,
+            
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])

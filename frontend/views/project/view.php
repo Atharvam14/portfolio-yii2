@@ -1,5 +1,5 @@
 <?php
-use yii\bootstrap4\Carousel;
+use yii\bootstrap5\Carousel;
 use yii\helpers\Html;
 use yii\widgets\ListView;
 

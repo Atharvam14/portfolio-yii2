@@ -1,40 +1,56 @@
-# yii console commands
+# Yii console commands
 /yii
 /yii_test
 /yii_test.bat
 
-# phpstorm project files
+# IDE files
 .idea
-
-# netbeans project files
+.vscode
 nbproject
-
-# zend studio for eclipse project files
 .buildpath
 .project
 .settings
 
-# windows thumbnail cache
+# OS files
 Thumbs.db
-
-# composer vendor dir
-/vendor
-
-# composer itself is not needed
-composer.phar
-
-# Mac DS_Store Files
 .DS_Store
 
-# phpunit itself is not needed
+# Composer
+/vendor/
+composer.phar
+
+# Node
+/node_modules/
+
+# Runtime (important)
+backend/runtime/
+frontend/runtime/
+common/runtime/
+
+# Assets
+backend/web/assets/
+frontend/web/assets/
+
+# Uploads (images)
+backend/web/uploads/
+
+# Env & secrets
+.env
+common/config/main-local.php
+backend/config/main-local.php
+frontend/config/main-local.php
+
+# Logs
+*.log
+
+# PHPUnit
 phpunit.phar
-# local phpunit config
 /phpunit.xml
 
-# vagrant runtime
+# Vagrant
 /.vagrant
 
-# ignore generated files
+# Generated web files
 /frontend/web/index.php
 /frontend/web/index-test.php
 /frontend/web/robots.txt
@@ -42,6 +58,5 @@ phpunit.phar
 /backend/web/index-test.php
 /backend/web/robots.txt
 
-# deployment
-.env
+# Docker
 docker-compose.yml
