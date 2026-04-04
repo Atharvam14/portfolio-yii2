@@ -42,11 +42,12 @@ class Project extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'tech_stack', 'description'], 'required'],
+            [['name', 'tech_stack', 'description', 'status'], 'required'],
             [['tech_stack', 'description'], 'string'],
             [['start_date', 'end_date'], 'date', 'format' => 'php:Y-m-d'],
             [['name'], 'string', 'max' => 255],
-            [['imageFiles'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, jpeg', 'maxFiles' => 10],
+            [['status'], 'in', 'range' => ['pending', 'completed']],
+            [['imageFiles'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg', 'maxFiles' => 10],
         ];
     }
 
@@ -60,6 +61,7 @@ class Project extends \yii\db\ActiveRecord
             'name' => Yii::t('app', 'Name'),
             'tech_stack' => Yii::t('app', 'Tech Stack'),
             'description' => Yii::t('app', 'Description'),
+            'status' => Yii::t('app', 'Project Status'),
             'start_date' => Yii::t('app', 'Start Date'),
             'end_date' => Yii::t('app', 'End Date'),
         ];
@@ -96,6 +98,10 @@ class Project extends \yii\db\ActiveRecord
 
     public function saveImages()
     {
+        if (empty($this->imageFiles)) {
+            return;
+        }
+
         Yii::$app->db->transaction(function ($db) {
             /**
              * @var $db yii\db\Connection
@@ -110,12 +116,12 @@ class Project extends \yii\db\ActiveRecord
                 $file->base_url = Yii::$app->urlManager->createAbsoluteUrl($file->path_url);
                 $file->mime_type = mime_content_type($imageFile->tempName);
                 $file->save();
-
+                                
                 $projectImage = new ProjectImage();
                 $projectImage->project_id = $this->id;
                 $projectImage->file_id = $file->id;
                 $projectImage->save();
-
+               
                 $thumbnail = Image::thumbnail($imageFile->tempName, null, 1080);
                 $didSave = $thumbnail->save($file->path_url . '/' . $file->name);
                 if (!$didSave) {

@@ -64,6 +64,15 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'tech_stack:raw',
             'description:ntext',
+            [
+                'attribute' => 'status',
+                'format' => 'raw',
+                'value' => function($model){
+                    return $model->status === 'completed'
+                    ? '<span class="badge bg-success">Completed</span>'
+                    : '<span class="badge bg-danger">Pending</span>';
+                }
+            ],
             'start_date',
             'end_date',
         ],

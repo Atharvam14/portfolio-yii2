@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
     'format' => ['date', 'php:Y-m-d'],
 ],
             [
-                'class' => ActionColumn::className(),
+                'class' => ActionColumn::class,
                 'urlCreator' => function ($action, Project $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
                  }

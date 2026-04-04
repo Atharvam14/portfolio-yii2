@@ -2,6 +2,7 @@
 
 namespace backend\modules\blog\controllers;
 
+use Yii;
 use common\models\Post;
 use backend\modules\blog\models\PostSearch;
 use yii\web\Controller;
@@ -22,7 +23,7 @@ class PostController extends Controller
             parent::behaviors(),
             [
                 'verbs' => [
-                    'class' => VerbFilter::className(),
+                    'class' => VerbFilter::class,
                     'actions' => [
                         'delete' => ['POST'],
                     ],

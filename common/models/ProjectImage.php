@@ -32,8 +32,8 @@ class ProjectImage extends \yii\db\ActiveRecord
         return [
             [['project_id', 'file_id'], 'required'],
             [['project_id', 'file_id'], 'integer'],
-            [['file_id'], 'exist', 'skipOnError' => true, 'targetClass' => File::className(), 'targetAttribute' => ['file_id' => 'id']],
-            [['project_id'], 'exist', 'skipOnError' => true, 'targetClass' => Project::className(), 'targetAttribute' => ['project_id' => 'id']],
+            [['file_id'], 'exist', 'skipOnError' => true, 'targetClass' => File::class, 'targetAttribute' => ['file_id' => 'id']],
+            [['project_id'], 'exist', 'skipOnError' => true, 'targetClass' => Project::class, 'targetAttribute' => ['project_id' => 'id']],
         ];
     }
 
@@ -56,7 +56,7 @@ class ProjectImage extends \yii\db\ActiveRecord
      */
     public function getFile()
     {
-        return $this->hasOne(File::className(), ['id' => 'file_id']);
+        return $this->hasOne(File::class, ['id' => 'file_id']);
     }
 
     /**
@@ -66,6 +66,6 @@ class ProjectImage extends \yii\db\ActiveRecord
      */
     public function getProject()
     {
-        return $this->hasOne(Project::className(), ['id' => 'project_id']);
+        return $this->hasOne(Project::class, ['id' => 'project_id']);
     }
 }

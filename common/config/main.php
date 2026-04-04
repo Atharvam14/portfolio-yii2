@@ -9,17 +9,21 @@ return [
     ],
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
+
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
+
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+
         'formatter' => [
             'dateFormat' => 'yyyy-MM-dd'
         ],
+
         'assetManager' => [
             'appendTimestamp' => true
-        ],
-        'authManager' => [
-            'class' => 'yii\rbac\DbManager',
         ],
     ],
 ];

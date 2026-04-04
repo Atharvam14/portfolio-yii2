@@ -30,7 +30,8 @@
     "ext-json": "*",
     "yiisoft/yii2-imagine": "^2.3",
     "kartik-v/yii2-widget-rating": "dev-master",
-    "vlucas/phpdotenv": "^5.5"
+    "vlucas/phpdotenv": "^5.5",
+    "kartik-v/yii2-widget-select2": "^2.2"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.1.0",
