@@ -46,6 +46,13 @@ AppAsset::register($this);
                 'url' => ['/project/index'],
                 'visible' => Yii::$app->user->can('manageProjects'),
             ];
+            $menuItems[] = [
+                'label' => Yii::t('app', 'Testimonials'),
+                'url' => ['/testimonial/index'],
+                'visible' => Yii::$app->user->can('manageTestimonials'),
+            ];
+
+
            
             $menuItems[] = '<li>'
                 . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])

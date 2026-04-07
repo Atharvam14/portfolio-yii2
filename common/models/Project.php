@@ -52,7 +52,7 @@ class Project extends \yii\db\ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * cons{@inheritdoc}
      */
     public function attributeLabels()
     {
